@@ -1,6 +1,9 @@
+#include libraries-----
 import smbus
 import math
 import time
+#include libraries-----
+
 
 #mpu-init-----
 def mpuinit():
@@ -19,8 +22,6 @@ def mpuinit():
     angvelerrorz=gyro_scaled_z
 #mpu-init-----
 
-
-
 #globals----
 bus = smbus.SMBus(1)
 now = time.time()
@@ -38,6 +39,7 @@ gyro_scale = 131.0
 accel_scale = 16384.0
 address = 0x68  # This is the address value read via the i2cdetect command
 #globals----
+
 
 
 #accesory functions-----
@@ -88,8 +90,6 @@ def calibrateMpu():
     print("Calibration complete..")
 
 #accesory functions-----
-
-
 #function
 
 def updateMpu6050():
@@ -125,6 +125,8 @@ def updateMpu6050():
     linacc_x=(accel_scaled_x+(math.sin(math.radians(angle_y))))*9.81#m/s^2
     linacc_y=(accel_scaled_y-(math.sin(math.radians(angle_x))))*9.81#m/s^2
     #special manipulation using no logic---
+
+
 
     angularVelocity_z=gyro_scaled_z-angvelerrorz
 
